@@ -5,6 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "@moltin/sdk": "^2.4.3",
     "ejs": "2.3.4",
     "foundation-sites": "^6.4.1",
     "grunt": "1.0.1",

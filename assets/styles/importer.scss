@@ -1,3 +1,306 @@
 @import 'settings';
 @import 'foundation';
 @include foundation-everything (true);
+@include foundation-flex-classes;
+@include foundation-flex-grid;
+
+
+$numeroVerde-color: #008a2e !default;
+$evidence-color: #ffed00 !default;
+$button-background-hover: scale-color($evidence-color, $lightness: -15%);
+$rosso-color: #FF0A0A !default;
+$ctaButton-header-color: $evidence-color !default;
+$ctaButton-radius: 30px !default;
+
+.head-box {
+  font-weight: 800;
+  font-size: 120%;
+  text-align: center;
+  background-color: scale-color($dark-gray, $lightness: 80%);
+}
+
+.border-bottom {
+  border-style: none none solid none;
+  border-width: 1px;
+  border-color: scale-color($dark-gray, $lightness: 80%);
+}
+
+.head-pagamento {
+  font-weight: 700;
+  font-size: 120%;
+  text-align: left;
+  padding-bottom: 5px;
+}
+
+.riga-costo {
+  text-align: right;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-style: none none solid none;
+  border-width: 1px;
+  border-color: scale-color($dark-gray, $lightness: 80%);
+}
+
+.ordine {
+  margin-top: 5px;
+  margin-right: 50px;
+}
+
+.elenco-prodotti {
+  margin-top: 5px;
+
+  input {
+    display: inline;
+    width: 55px;
+    height: rem-calc(30, null);
+  }
+
+  .labelProdotti {
+    font-style: italic;
+    font-size: 90%;
+  }
+  .dataProdotti {
+    background-color: scale-color($dark-gray, $lightness: 80%);
+    padding: 3px;
+  }
+
+  .box-prodotto {
+    margin-top: 3px;
+
+    .titolo-prodotto {
+      font-weight: 700;
+      font-size: 100%;
+      font-style: italic;
+      border-style: solid none solid none;
+      border-width: 1px;
+      border-color: scale-color($dark-gray, $lightness: 80%);
+    }
+  }
+}
+
+.carrello {
+  .intestazione {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: scale-color($dark-gray, $lightness: 80%);
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: scale-color($dark-gray, $lightness: 80%);
+  }
+}
+
+.title-container {
+    background-size: cover;
+    padding-top: 3%;
+    padding-bottom: 7%;
+    padding-left:  2%;
+    padding-right:  2%;
+    margin-bottom: 10px;
+
+    .title {
+        background-color: rgba(255,255,255,0.8);
+        text-align: left;
+        padding-left: 1%;
+        padding-right: 1%;
+        letter-spacing: 1px;
+        color: #000000;
+        h1 {
+          font-size: rem-calc(45, null);
+        }
+        .big {
+            text-transform: none;
+            font-weight: 700;
+            font-style: none;
+        }
+
+        .medium {
+            font-size: rem-calc(40, null);
+            text-transform: none;
+            font-weight: 100;
+            font-style: normal;
+        }
+    }
+}
+
+
+.title-mobile {
+        font-size: rem-calc(40, null);
+        font-weight: 700;
+    }
+
+
+.ctaButton {
+    @include button-style($evidence-color, $button-background-hover, #000000);
+    font-size: rem-calc(20, null);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+.prezzo {
+    font-size: 1.8rem;
+    color: #ff2424;
+    padding: 0.3125rem;
+    font-weight: bold;
+}
+
+.prezzo_intero {
+    text-decoration: line-through;
+}
+
+.leggero {
+  color: $dark-gray;
+  font-size: 0.9rem;
+}
+
+.p_stretto {
+  line-height: 1.2;
+}
+
+div.spazio_bianco {
+  height: 4.5rem;
+}
+
+div.spazio_bianco-small {
+  height: 1.5rem;
+}
+
+
+.stelle {
+  color: #fad220;
+  font-size: 2rem;
+}
+
+.border {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: scale-color($dark-gray, $lightness: 80%);
+}
+
+.menu-text {
+    padding: 0rem;
+}
+
+.top-bar {
+  background-color: #ffffff;
+  padding: 0rem;
+
+  ul {
+    background-color: #ffffff;
+  }
+}
+
+.box_nverde {
+    line-height: 2.1875rem;
+}
+
+.numero-verde {
+    font-size: rem-calc(40, null);
+    color: #008a2e;
+}
+
+.center {
+    text-align: center;
+}
+
+.vantaggiForm {
+    padding-top: 50px;
+    text-align: center;
+    h5 {
+        margin-bottom: 20px;
+    }
+}
+
+.recensione {
+  img {
+    float: left;
+    padding: 0.8rem;
+  }
+}
+
+
+//BRAINTREE
+ .hosted-field {
+  height: 50px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  display: inline-block;
+  box-shadow: none;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #dddddd;
+  line-height: 20px;
+  background: #fcfcfc;
+  margin-bottom: 12px;
+  background: linear-gradient(to right, white 50%, #fcfcfc 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 300ms ease-in-out;
+}
+
+.hosted-fields--label {
+  font-family: courier, monospace;
+  text-transform: uppercase;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.button-container {
+  display: block;
+  text-align: center;
+}
+
+.button {
+  cursor: pointer;
+  font-weight: 500;
+  line-height: inherit;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+}
+
+.button--small {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+}
+
+.button--green {
+  outline: none;
+  background-color: #64d18a;
+  border-color: #64d18a;
+  color: white;
+  transition: all 200ms ease;
+}
+
+.button--green:hover {
+  background-color: #8bdda8;
+  color: white;
+}
+
+.braintree-hosted-fields-focused {
+  border: 1px solid #64d18a;
+  border-radius: 1px;
+  background-position: left bottom;
+}
+
+.braintree-hosted-fields-invalid {
+  border: 1px solid #ed574a;
+}
+
+.braintree-hosted-fields-valid {
+}
+
+#cardForm {
+  max-width: 50.75em;
+  margin: 0 auto;
+  padding: 1.875em;
+}

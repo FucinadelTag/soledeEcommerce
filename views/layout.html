@@ -12,6 +12,12 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="https://lh4.googleusercontent.com/-4EFGp8NIxRg/UotMLOfvJtI/AAAAAAAAeGI/i8xYnYOxMBk/s16-no/favicon.ico" />
+
 
     <!--
         Stylesheets and Preprocessors
@@ -39,27 +45,68 @@
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
 
+    <!-- Facebook Pixel Code -->
+            <script>
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window,document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                 fbq('init', '1866312190253539');
+                fbq('track', 'PageView');
+            </script>
+
+            <noscript>
+                <img height="1" width="1" src="https://www.facebook.com/tr?id=1866312190253539&ev=PageView&noscript=1"/>
+            </noscript>
+        <!-- End Facebook Pixel Code -->
+
   </head>
 
   <body>
+        <div class="row border">
+            <div class="columns">
+                <div class="top-bar">
+                    <div class="top-bar-left">
+                        <ul class="menu">
+                            <li class="menu-text"><a href="/"><img src="https://prismic-io.s3.amazonaws.com/solede/ad1a0872cb0cc3f8bbdc38aec95e622b7bff6b0a.png"></a></li>
 
-    <div class="row">
-      <div class="column small-12 medium-6">
-        Logo
-      </div>
-      <div class="column small-12 medium-6">
-        <div class="row align-right">
-            <div class="column medium-5">
-              Gestione Account
+                            <li class="hide-for-medium">
+                                <a href="/carrello">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrello
+                                </a>
+                                <div id="cartNO"></div>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <div class="top-bar-right show-for-medium">
+                        <ul class="menu">
+                            <li>
+                                <a href="/carrello">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrello
+                                </a>
+                                <div id="cartNO"></div>
+                            </li>
+                            <li>
+                                <a href="#" title="Accedi al tuo account" class="snipcart-user-profile">
+                                    <span class="snipcart-user-email">Accedi al tuo account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="snipcart-user-logout">
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row align-right">
-            <div class="column medium-5">
-              Carrello
-            </div>
-        </div>
-      </div>
-    </div>
 
     {% block body %}
       This is the default content
@@ -89,7 +136,7 @@
     -->
 
     <!--TEMPLATES-->
-    
+
     <!--TEMPLATES END-->
 
 
@@ -115,6 +162,43 @@
           + Use a different preprocessor, like TypeScript
 
     -->
+
+    <footer class="row">
+        <div class="large-12 medium-12 columns">
+          <hr />
+          <div class="row">
+            <div class="small-12 large-12 medium-12 columns">
+              <a href="https://www.facebook.com/Fucina-del-Tag-1470272993263670/" target="_blank"><i class="fa fa-facebook"></i></a> | &copy; Solede è un progetto di Fucina del Tag - Via Ampère 61/A - 20131 MIlano - P.IVA 03201900960 | <a href="/privacy.html" target="_blank">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="spazio_bianco"></div>
+      </footer>
+
+
+        <!-- <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="MDBmMGFjMzItODhhNy00OWYzLThkOTktYzU4MGNjNjg5NmQ1NjM2MTk2NTM1MzM1ODI2MDUy"></script>
+        <script type="text/javascript" src="/javascripts/it.js" ></script>
+        <script type="text/javascript" src="/javascripts/snipcart.js" ></script> -->
+
+
+        <script type="text/javascript">
+            var _iub = _iub || [];
+            _iub.csConfiguration = {
+                cookiePolicyId: 670302,
+                siteId: 259986,
+                lang: "it",
+                priorConsent: false,
+                banner: {
+                    slideDown: false,
+                    applyStyles: false,
+                    fontSize: "11px",
+                    textColor: "#ffffff",
+                    backgroundColor: '#9a9a9a',
+                    content: "<p>Questo sito si avvale di cookie necessari al suo funzionamento. Se vuoi saperne di pi&ugrave; consulta la %{cookie_policy_link}.<br />Chiudendo questo banner acconsenti all’uso dei cookie.</p>"
+                }
+
+            };
+        </script>
+
 
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
