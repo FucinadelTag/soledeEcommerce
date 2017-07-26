@@ -33,6 +33,7 @@ var jsFilesToInject = [
 
   'js/dependencies/jquery.min.js',
   'js/dependencies/foundation.min.js',
+  'js/dependencies/jquery.payment.min.js',
   'js/app.js',
 
   // All of the rest of your client-side js files

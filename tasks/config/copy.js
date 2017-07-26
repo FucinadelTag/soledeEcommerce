@@ -41,6 +41,12 @@ module.exports = function(grunt) {
           cwd: 'node_modules/foundation-sites/dist/js',
           src: ['foundation.min.js'],
           dest: '.tmp/public/js/dependencies'
+        },
+        {
+          expand: true,
+          cwd: 'node_modules/jquery.payment/lib',
+          src: ['jquery.payment.min.js'],
+          dest: '.tmp/public/js/dependencies'
         }
       ]
     },

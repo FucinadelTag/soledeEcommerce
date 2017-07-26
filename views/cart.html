@@ -42,7 +42,7 @@
                 </div>
 
             </div>
-            <form data-abide class="formOrdine" id="formOrdine" idaccept-charset="UTF-8" method="POST">
+            <form data-abide class="formOrdine" id="formOrdine" action="/order/create" idaccept-charset="UTF-8" method="POST">
                 <div class="row">
                     <div class="medium-6 columns">
                         <label>Nome
@@ -156,6 +156,37 @@
                 Elenco prodotti
             </div>
         </div>
+        {% for item in data %}
+
+            <div class="box-prodotto">
+            <div class="row">
+                <div class="columns titolo-prodotto">
+                    {{item.name}}
+                </div>
+            </div>
+            <div class="row align-center align-middle">
+                <div class="small-12 columns">
+                        <img src="">
+                </div>
+            </div>
+            <div class="row align-center align-middle">
+                <div class="small-12 columns">
+                    <span class="labelProdotti">Prezzo Unitario</span>: <span>{{item.meta.display_price.with_tax.unit.formatted}}</span><br>
+                    <form class="formCartProduct" id="{{item.id}}" action="/cart/update" idaccept-charset="UTF-8" method="POST">
+                        <input type="hidden" name="itemId" value="{{item.id}}">
+                        <label>Quantità:
+                            <input type="number" name="quantity" value="{{item.quantity}}" required>
+                        </label>
+                        <button class="button inviaRichiesta" type="submit" value="Submit">Modifica la Quantità</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        {% endfor %}
         {# {{data}}
         <div class="box-prodotto">
             <div class="row">
@@ -189,24 +220,79 @@
 
 </div>
 
-<script type="text/javascript">
-    $( ".formCartProduct" ).submit(function( event ) {
+{% endblock %}
 
-        event.preventDefault();
 
-        let formId = event.currentTarget.id;
-        let stringForm = 'form#' + formId;
 
-        let formData = $(stringForm).serializeObject();
+{% block specificScript %}
 
-        if (formData.quantity <= 0) {
-            formData.quantity  = 1;
+    <style type="text/css" media="screen">
+        .has-error input {
+          border-width: 2px;
+          border-color: red;
+        }
+        .validation.text-danger:after {
+          content: 'Validation failed';
+        }
+        .validation.text-success:after {
+          content: 'Validation passed';
+        }
+        .card_type {
+            font-size: 50px
+        }
+    </style>
+
+<script>
+
+
+
+    jQuery(function($) {
+      $('.cc-number').payment('formatCardNumber');
+      $('.cc-exp').payment('formatCardExpiry');
+      $('.cc-cvc').payment('formatCardCVC');
+
+      $.fn.toggleInputError = function(erred) {
+        this.toggleClass('is-invalid-input', erred);
+        this.next('.form-error').toggleClass('is-visible', erred);
+        return this;
+      };
+
+      $('.cc-number').keyup(function(e) {
+        let cardType = $.payment.cardType($('.cc-number').val());
+
+        $('#iconaCarta').removeClass(function(index, className) {
+            return (className.match(/(^|\s)fa-cc-\S+/g) || []).join(' ');
+        });
+
+        if (cardType === null){
+            $('#iconaCarta').addClass('fa-credit-card');
+
+        } else {
+            let cardIcon = 'fa-cc-' + cardType;
+
+            $('#iconaCarta').addClass(cardIcon);
+        }
+      });
+
+
+      $('form').submit(function(e) {
+
+        let cardType = $.payment.cardType($('.cc-number').val());
+        $('.cc-number').toggleInputError(!$.payment.validateCardNumber($('.cc-number').val()));
+        $('.cc-exp').toggleInputError(!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')));
+        $('.cc-cvc').toggleInputError(!$.payment.validateCardCVC($('.cc-cvc').val(), cardType));
+        $('.validation').removeClass('text-danger text-success');
+        $('.validation').addClass($('.has-error').length ? 'text-danger' : 'text-success');
+
+        console.log ($('.is-invalid-input').length);
+
+        if ($('.is-invalid-input').length > 0) {
+            e.preventDefault();
         }
 
-        updateCart (formData);
-
+      });
     });
 
-</script>
+  </script>
 
 {% endblock %}

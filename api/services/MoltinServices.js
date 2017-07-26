@@ -17,15 +17,26 @@ class MoltinService {
     }
 
     getCart (){
-        let cart = this.getMoltin().Cart.Items();
-        return (cart);
+        let cartPromise = this.getMoltin().Cart.Items();
+        return (cartPromise);
+    }
+
+    updateCart (itemId, quantity){
+        if (quantity <= 0){
+            quantity = 1;
+        }
+
+        console.log (quantity);
+        let cartPromise = this.getMoltin().Cart.UpdateItemQuantity(itemId, quantity);
+        return (cartPromise);
     }
 
     addToCart (productId){
 
-        this.getMoltin().Cart.AddProduct(productId, 1).then((cart) => {
-            console.log(cart);
-        });
+        let cartPromise = this.getMoltin().Cart.AddProduct(productId, 1);
+
+        return cartPromise;
+
 
     }
 

@@ -16,12 +16,12 @@ module.exports = {
    */
   add: function (req, res) {
 
-    console.log (req.params);
+    let formParams = req.body;
 
-    let params = req.params;
+    Moltin.addToCart (formParams.productId).then((cart) => {
+      return res.redirect('/cart');
+    });
 
-    Moltin.addToCart (params.productId);
-    return res.redirect('/cart');
   },
 
 
@@ -34,7 +34,7 @@ module.exports = {
 
       console.log(cart);
 
-      console.log (cart.meta.display_price.with_tax.formatted);
+      console.log (cart.data);
 
       return res.view('cart', cart);
     });
@@ -45,8 +45,12 @@ module.exports = {
    * `CartController.update()`
    */
   update: function (req, res) {
-    return res.json({
-      todo: 'update() is not implemented yet!'
+    let formParams = req.body;
+
+    console.log (formParams);
+
+    Moltin.updateCart (formParams.itemId, formParams.quantity).then((cart) => {
+      return res.redirect('/cart');
     });
   }
 };
