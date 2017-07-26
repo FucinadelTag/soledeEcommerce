@@ -45,6 +45,53 @@ class MoltinService {
             console.log(products);
         });
     }
+
+    orderPay (orderId, formData){
+
+        let payment = this.getMoltin().Orders.Payment(orderId, {
+            gateway: 'braintree',
+            method: 'purchase',
+            first_name: formData.nome,
+            last_name: formData.cognome,
+            number: formData.number,
+            month: '02',
+            year: '2020',
+            verification_value: formData.cvc
+        });
+
+        return (payment);
+    }
+
+    orderCreate (formData){
+
+
+        let chekoutPromise = this.getMoltin().Cart.Checkout({
+            customer: {
+                name: formData.nome +' '+ formData.cognome,
+                email: formData.email
+            },
+            billing_address: {
+                first_name: formData.nome,
+                last_name: formData.cognome,
+                line_1: 'nn',
+                line_2: 'nn',
+                county: 'nn',
+                postcode: '20128',
+                country: 'IT'
+            },
+            shipping_address: {
+                first_name: formData.nome,
+                last_name: formData.cognome,
+                line_1: 'nn',
+                line_2: 'nn',
+                county: 'nn',
+                postcode: 'nn',
+                country: 'IT'
+            }
+        });
+
+        return chekoutPromise;
+    }
 }
 
 

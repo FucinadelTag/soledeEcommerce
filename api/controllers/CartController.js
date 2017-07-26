@@ -36,6 +36,8 @@ module.exports = {
 
       console.log (cart.data);
 
+      //return res.json(cart);
+
       return res.view('cart', cart);
     });
   },
