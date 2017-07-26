@@ -1,0 +1,212 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="row">
+    <div class="columns medium-8 small-12 ordine">
+        <div class="row">
+            <div class="columns head-box">
+                Concludi l'ordine
+            </div>
+        </div>
+        <!-- <div id="dropin-container"></div>
+        <button id="submit-button">Request payment method</button> -->
+        <!-- <div class="demo-frame">
+          <form action="/" method="post" id="cardForm" >
+            <label class="hosted-fields--label" for="card-number">Card Number</label>
+            <div id="card-number" class="hosted-field"></div>
+
+            <label class="hosted-fields--label" for="expiration-date">Expiration Date</label>
+            <div id="expiration-date" class="hosted-field"></div>
+
+            <label class="hosted-fields--label" for="cvv">CVV</label>
+            <div id="cvv" class="hosted-field"></div>
+
+            <label class="hosted-fields--label" for="postal-code">Postal Code</label>
+            <div id="postal-code" class="hosted-field"></div>
+
+            <div class="button-container">
+            <input type="submit" class="button button--small button--green" value="Purchase" id="submit"/>
+            </div>
+          </form>
+        <div> -->
+        <div class="spazio_bianco-small"></div>
+        <div class="">
+            <div class="row">
+
+                <div class="columns">
+                    <div class="callout" data-closable>
+                        <button class="close-button" data-close>&times;</button>
+                        <p class="validation"></p>
+                    </div>
+                </div>
+
+            </div>
+            <form data-abide class="formOrdine" id="formOrdine" idaccept-charset="UTF-8" method="POST">
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <label>Nome
+                            <input type="text" name="nome" placeholder="il tuo nome" required>
+                            <span class="form-error">
+                                Il campo Nome è obbligatorio
+                            </span>
+                        </label>
+                    </div>
+                    <div class="medium-6 columns">
+                        <label>Cognome
+                            <input type="text" name="cognome" placeholder="il tuo congome" required>
+                            <span class="form-error">
+                                Il campo Cognome è obbligatorio
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        <label>E-email
+                            <input type="email" name="email" placeholder="il tuo indirizzo email" required>
+                            <span class="form-error">
+                                Il campo E-mail è obbligatorio
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <fieldset class="fieldset">
+                    <legend><i class="fa fa-lock" aria-hidden="true"></i> Paga con Carta di Credito</legend>
+                        <div class="row align-middle">
+                            <div class="columns medium-12 mall-12">
+                                <div class="row align-bottom">
+                                    <div class="medium-10 columns form-group">
+                                        <label for="cc-number" class="control-label">Numero Carta di Credito</label>
+                                        <input id="cc-number" name="number" type="tel" class="input-lg form-control cc-number" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required>
+                                        <span class="form-error">
+                                            Il numero della carta di credito non è corretto
+                                        </span>
+                                    </div>
+                                    <div class="columns card_type">
+                                        <i id="iconaCarta" class="fa fa-credit-card" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="row align-bottom">
+                                    <div class="medium-5 columns form-group">
+                                        <label for="cc-exp" class="control-label">Data di scadenza  <span class="small">- MM/AA</span></label>
+                                        <input id="cc-exp" name="exp" type="tel" class="input-lg form-control cc-exp" autocomplete="cc-exp" placeholder="•• / ••" required>
+                                        <span class="form-error">
+                                            La data di scadenza non è corretta
+                                        </span>
+                                    </div>
+                                    <div class="medium-5 columns form-group">
+                                        <label for="cc-cvc" class="control-label">CVV <span class="small">- 3/4 cifre sul retro della carta</span></label>
+                                        <input id="cc-cvc" name="cvc" type="tel" class="input-lg form-control cc-cvc" autocomplete="off" placeholder="•••" required>
+                                        <span class="form-error">
+                                            Il cvv deve essere di 3 o 4 cifre
+                                        </span>
+                                    </div>
+                                    <div class="medum-2 columns">
+                                        <img src="https://s3-eu-west-1.amazonaws.com/cdn.fucinadeltag.it/icons/credit-card-with-cvv-code.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </fieldset>
+                <div class="row align-center">
+                    <div class="medium-4 small-12 columns">
+                        <button class="button inviaPagamento" type="submit" value="Submit">Concludi l'ordine!</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="columns medium-3 small-12 elenco-prodotti">
+        <div class="row">
+            <div class="columns head-box">
+                Riepilogo ordine
+            </div>
+        </div>
+        <div class="row align-right riga-costo">
+            <div class="columns small-6">
+                Totale prodotti:
+            </div>
+            <div class="columns small-6">
+                {{meta.display_price.with_tax.formatted}}
+            </div>
+        </div>
+        <div class="row align-right riga-costo">
+            <div class="columns small-6">
+                Spedizione:
+            </div>
+            <div class="columns small-6">
+                Eu 0,00
+            </div>
+        </div>
+        <div class="row align-right riga-costo">
+            <div class="columns small-6">
+                <strong>Totale</strong>:
+            </div>
+            <div class="columns small-6">
+                <strong>{{meta.display_price.with_tax.formatted}}</strong>
+            </div>
+        </div>
+
+        <div class="spazio_bianco-small"></div>
+
+        <div class="row">
+            <div class="columns head-box">
+                Elenco prodotti
+            </div>
+        </div>
+        {# {{data}}
+        <div class="box-prodotto">
+            <div class="row">
+                <div class="columns titolo-prodotto">
+                    {{name}}
+                </div>
+            </div>
+            <div class="row align-center align-middle">
+                <div class="small-12 columns">
+                        <img src="{{images}}">
+                </div>
+            </div>
+            <div class="row align-center align-middle">
+                <div class="small-12 columns">
+                    <span class="labelProdotti">Prezzo Unitario</span>: <span>{{price}}</span><br>
+                    <form class="formCartProduct" id="{{id}}" idaccept-charset="UTF-8" method="POST">
+                        <input type="hidden" name="itemId" value="{{id}}">
+                        <label>Quantità:
+                            <input type="number" name="quantity" value="{{quantity}}" required>
+                        </label>
+                        <button class="button inviaRichiesta" type="submit" value="Submit">Modifica la Quantità</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+        {{items}} #}
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $( ".formCartProduct" ).submit(function( event ) {
+
+        event.preventDefault();
+
+        let formId = event.currentTarget.id;
+        let stringForm = 'form#' + formId;
+
+        let formData = $(stringForm).serializeObject();
+
+        if (formData.quantity <= 0) {
+            formData.quantity  = 1;
+        }
+
+        updateCart (formData);
+
+    });
+
+</script>
+
+{% endblock %}

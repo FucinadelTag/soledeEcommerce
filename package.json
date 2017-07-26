@@ -1,14 +1,20 @@
 {
   "name": "solede",
+  "engines": {
+    "node": ">=8.2.*"
+  },
   "private": true,
   "version": "0.0.0",
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
     "@moltin/sdk": "^2.4.3",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
     "ejs": "2.3.4",
     "foundation-sites": "^6.4.1",
     "grunt": "1.0.1",
+    "grunt-babel": "^6.0.0",
     "grunt-contrib-clean": "1.0.0",
     "grunt-contrib-coffee": "1.0.0",
     "grunt-contrib-concat": "1.0.1",
@@ -25,7 +31,8 @@
     "nunjucks": "^3.0.1",
     "rc": "1.0.1",
     "sails": "~0.12.13",
-    "sails-disk": "~0.10.9"
+    "sails-disk": "~0.10.9",
+    "sails-hook-babel": "^6.0.3"
   },
   "scripts": {
     "debug": "node debug app.js",

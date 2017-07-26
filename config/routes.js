@@ -34,7 +34,14 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
+  },
+  'GET /cart/add/:productId': {
+    controller: "Cart", action: "add"
+  },
+  'GET /cart': {
+    controller: "Cart", action: "view"
   }
+
 
   /***************************************************************************
   *                                                                          *
