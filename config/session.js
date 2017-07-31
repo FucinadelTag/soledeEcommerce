@@ -31,9 +31,9 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // cookie: {
-  //   maxAge: 24 * 60 * 60 * 1000
-  // },
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -74,8 +74,8 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // adapter: 'mongo',
-  // url: 'mongodb://user:password@localhost:27017/dbname', // user, password and port optional
+  adapter: 'mongo',
+  url: 'mongodb://sails:loretech74@ds127243-a0.mlab.com:27243,ds127243-a1.mlab.com:27243/solede?replicaSet=rs-ds127243', // user, password and port optional
 
   /***************************************************************************
   *                                                                          *
@@ -89,12 +89,12 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // collection: 'sessions',
-  // stringify: true,
-  // mongoOptions: {
-  //   server: {
-  //     ssl: true
-  //   }
-  // }
+  collection: 'sessions',
+  stringify: true,
+  mongoOptions: {
+    server: {
+      ssl: false
+    }
+  }
 
 };

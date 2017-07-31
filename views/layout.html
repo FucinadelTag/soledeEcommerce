@@ -18,6 +18,13 @@
 
     <link rel="shortcut icon" href="https://lh4.googleusercontent.com/-4EFGp8NIxRg/UotMLOfvJtI/AAAAAAAAeGI/i8xYnYOxMBk/s16-no/favicon.ico" />
 
+    <script type="text/javascript" src="/js/app.bundle.js"></script>
+
+    {% block extraScriptHeader %}
+    {% endblock %}
+
+    <link rel="stylesheet" href="/styles/app.bundle.css">
+
 
     <!--
         Stylesheets and Preprocessors
@@ -42,7 +49,6 @@
 
 
     <!--STYLES-->
-    <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
 
     <!-- Facebook Pixel Code -->
@@ -136,7 +142,7 @@
     -->
 
     <!--TEMPLATES-->
-    
+
     <!--TEMPLATES END-->
 
 
@@ -199,13 +205,10 @@
             };
         </script>
 
-
     <!--SCRIPTS-->
-    <script src="/js/dependencies/sails.io.js"></script>
-    <script src="/js/dependencies/jquery.min.js"></script>
-    <script src="/js/dependencies/foundation.min.js"></script>
-    <script src="/js/dependencies/jquery.payment.min.js"></script>
-    <script src="/js/app.js"></script>
+
+
+
     <!--SCRIPTS END-->
 
     {% block specificScript %}

@@ -38,6 +38,12 @@ module.exports = function(grunt) {
         },
         {
           expand: true,
+          cwd: 'node_modules/form-serializer/dist',
+          src: ['jquery.serialize-object.min.js'],
+          dest: '.tmp/public/js/dependencies'
+        },
+        {
+          expand: true,
           cwd: 'node_modules/foundation-sites/dist/js',
           src: ['foundation.min.js'],
           dest: '.tmp/public/js/dependencies'
@@ -47,6 +53,18 @@ module.exports = function(grunt) {
           cwd: 'node_modules/jquery.payment/lib',
           src: ['jquery.payment.min.js'],
           dest: '.tmp/public/js/dependencies'
+        },
+        {
+          expand: true,
+          cwd: 'node_modules/braintree-web/client',
+          src: ['index.js'],
+          dest: '.tmp/public/js/dependencies/braintree_client'
+        },
+        {
+          expand: true,
+          cwd: 'node_modules/braintree-web/paypal',
+          src: ['index.js'],
+          dest: '.tmp/public/js/dependencies/braintree_paypal'
         }
       ]
     },

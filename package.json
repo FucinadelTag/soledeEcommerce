@@ -11,8 +11,15 @@
     "@moltin/sdk": "^2.4.3",
     "babel": "^6.23.0",
     "babel-cli": "^6.24.1",
+    "braintree": "^2.2.0",
+    "braintree-web": "^3.20.1",
     "card": "^2.3.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "connect-mongo": "^1.3.2",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.4",
     "ejs": "2.3.4",
+    "form-serializer": "^2.5.0",
     "foundation-sites": "^6.4.1",
     "grunt": "1.0.1",
     "grunt-babel": "^6.0.0",
@@ -24,17 +31,27 @@
     "grunt-contrib-jst": "1.0.0",
     "grunt-contrib-less": "1.3.0",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "1.0.1",
+    "grunt-contrib-uglify": "git://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
     "grunt-contrib-watch": "1.0.0",
     "grunt-sails-linker": "~0.10.1",
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
+    "jquery": "^3.2.1",
     "jquery.payment": "^3.0.0",
+    "marketcloud-node": "^2.0.5",
+    "node-sass": "^4.5.3",
     "nunjucks": "^3.0.1",
     "rc": "1.0.1",
     "sails": "~0.12.13",
     "sails-disk": "~0.10.9",
-    "sails-hook-babel": "^6.0.3"
+    "sails-hook-babel": "^6.0.3",
+    "sass-loader": "^6.0.6",
+    "schema-client": "^3.0.4",
+    "store": "^2.0.12",
+    "store2": "^2.5.1",
+    "style-loader": "^0.18.2",
+    "web-webpack-plugin": "^1.9.0",
+    "webpack": "^3.4.1"
   },
   "scripts": {
     "debug": "node debug app.js",
@@ -46,5 +63,11 @@
     "url": "git://github.com/lorenzo/solede.git"
   },
   "author": "lorenzo",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "extract-text-webpack-plugin": "^3.0.0"
+  }
 }

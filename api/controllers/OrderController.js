@@ -5,7 +5,9 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-import Moltin from '../services/MoltinServices.js'
+import Market from '../services/MarketCloudServices.js'
+
+import Braintree from '../services/BrainTreeServices.js'
 
 module.exports = {
 
@@ -18,19 +20,34 @@ module.exports = {
 
     console.log (req.body);
     let formParams = req.body;
+    let cartId = req.session.cart.id;
 
-    Moltin.orderCreate (formParams).then((order) => {
-        console.log (order);
+    Braintree.getClient ().then (response => {
+        console.log (response);
+      }).catch (error => {
+        console.log (error);
+      });
 
-        Moltin.orderPay (order.data.id, formParams).then((payment) => {
-            console.log (payment);
-        }).catch((err) => {
-            // Handle any error that occurred in any of the previous
-            // promises in the chain.
-            console.log (err);
-        });
-        //return res.redirect('/cart');
-    });
+    // Market.orderCreate(cartId, formParams).then ((orderData) => {
+    //     console.log (orderData);
+    // });
+
+    //console.log (order);
+
+
+
+    // Moltin.orderCreate (formParams).then((order) => {
+    //     console.log (order);
+
+    //     Moltin.orderPay (order.data.id, formParams).then((payment) => {
+    //         console.log (payment);
+    //     }).catch((err) => {
+    //         // Handle any error that occurred in any of the previous
+    //         // promises in the chain.
+    //         console.log (err);
+    //     });
+    //     //return res.redirect('/cart');
+    // });
 
   },
 

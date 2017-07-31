@@ -32,6 +32,9 @@ var jsFilesToInject = [
   //'js/dependencies/**/*.js',
 
   'js/dependencies/jquery.min.js',
+  'js/dependencies/jquery.serialize-object.min.js',
+  'js/dependencies/braintree_client/index.js',
+  'js/dependencies/braintree_paypal/index.js',
   'js/dependencies/foundation.min.js',
   'js/dependencies/jquery.payment.min.js',
   'js/app.js',

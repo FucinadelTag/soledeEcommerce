@@ -5,10 +5,9 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-import Moltin from '../services/MoltinServices.js'
+import Market from '../services/MarketCloudServices.js'
 
 module.exports = {
-
 
 
   /**
@@ -18,8 +17,11 @@ module.exports = {
 
     let formParams = req.body;
 
-    Moltin.addToCart (formParams.productId).then((cart) => {
-      return res.redirect('/cart');
+    Market.addToCart (req.session.cart, formParams.productId).then((cart) => {
+
+        req.session.cart = cart.data;
+
+        return res.redirect('/cart');
     });
 
   },
@@ -30,16 +32,11 @@ module.exports = {
    */
   view: function (req, res) {
 
-    Moltin.getCart().then((cart) => {
+    let cart = Market.getCart(req.session.cart);
 
-      console.log(cart);
+    console.log (cart);
 
-      console.log (cart.data);
-
-      //return res.json(cart);
-
-      return res.view('cart', cart);
-    });
+    return res.view('cart', cart);
   },
 
 
@@ -49,9 +46,9 @@ module.exports = {
   update: function (req, res) {
     let formParams = req.body;
 
-    console.log (formParams);
+    Market.updateCart (req.session.cart, formParams.itemId, formParams.quantity).then((cart) => {
+      req.session.cart = cart.data;
 
-    Moltin.updateCart (formParams.itemId, formParams.quantity).then((cart) => {
       return res.redirect('/cart');
     });
   }
